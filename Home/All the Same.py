@@ -19,7 +19,7 @@ from typing import List, Any
 
 def all_the_same(elements: List[Any]) -> bool:
     # your code here
-    return True
+    return True if len(set(elements)) <=1 else False
 
 
 if __name__ == '__main__':
