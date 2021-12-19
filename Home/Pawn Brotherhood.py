@@ -20,11 +20,85 @@
 # 0 < pawns ≤ 8
 # How to improve this mission? https://github.com/CheckiO-Missions/checkio-mission-pawn-brotherhood { 22 }
 
+def lower_rank(rank: str) -> str:
+    if rank == '8':
+        return '7'
+    elif rank == '7':
+        return '6'
+    elif rank == '6':
+        return '5'
+    elif rank == '5':
+        return '4'
+    elif rank == '4':
+        return '3'
+    elif rank == '3':
+        return '2'
+    elif rank == '2':
+        return '1'
+    else:
+        return 'on safe'
+
+
+def left_file(file: str) -> str:
+    if file == 'h':
+        return 'g'
+    elif file == 'g':
+        return 'f'
+    elif file == 'f':
+        return 'e'
+    elif file == 'e':
+        return 'd'
+    elif file == 'd':
+        return 'c'
+    elif file == 'c':
+        return 'b'
+    elif file == 'b':
+        return 'a'
+    else:
+        return 'on safe'
+
+
+def right_file(file: str) -> str:
+    if file == 'a':
+        return 'b'
+    elif file == 'b':
+        return 'c'
+    elif file == 'c':
+        return 'd'
+    elif file == 'd':
+        return 'e'
+    elif file == 'e':
+        return 'f'
+    elif file == 'f':
+        return 'g'
+    elif file == 'g':
+        return 'h'
+    else:
+        return 'on safe'
+
+
+def lower_left(position: str) -> str:
+    if 'a' in position or '1' in position:
+        return 'no safe'
+    return left_file(position[0]) + lower_rank(position[1])
+
+
+def lower_right(position: str) -> str:
+    if 'h' in position or '1' in position:
+        return 'no safe'
+    return right_file(position[0]) + lower_rank(position[1])
+
+
 def safe_pawns(pawns: set) -> int:
-    return 0
+    safe = 0
+    for p in pawns:
+        if lower_left(p) in pawns or lower_right(p) in pawns:
+            safe = safe + 1
+    return safe
+
 
 if __name__ == '__main__':
-    #These "asserts" using only for self-checking and not necessary for auto-testing
+    # These "asserts" using only for self-checking and not necessary for auto-testing
     assert safe_pawns({"b4", "d4", "f4", "c3", "e3", "g5", "d2"}) == 6
     assert safe_pawns({"b4", "c4", "d4", "e4", "f4", "g4", "e5"}) == 1
     print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
