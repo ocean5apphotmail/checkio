@@ -30,7 +30,16 @@ def left_join(phrases: tuple) -> str:
     """
     Join strings and replace "right" to "left"
     """
-    return "left"
+    import re
+    a = ''
+    result = ''
+    for el in phrases:
+        a = re.sub('right','left',el)
+        if result == '':
+            result = a
+        else:
+            result = result + ',' +a
+    return result
 
 
 if __name__ == "__main__":

@@ -19,7 +19,12 @@
 
 def count_digits(text: str) -> int:
     # your code here
-    return 0
+    num = 0
+    for e in text:
+        if e.isdigit() == True:
+           num = num +1
+
+    return num
 
 
 if __name__ == '__main__':

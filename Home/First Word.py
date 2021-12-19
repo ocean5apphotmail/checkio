@@ -19,12 +19,15 @@
 #
 # Precondition: the text can contain a-z A-Z , . '
 # How to improve this mission? https://github.com/CheckiO-Missions/checkio-mission-first-word { 10 }
+
 def first_word(text: str) -> str:
     """
         returns the first word in a given text.
     """
     # your code here
-    return text[0:2]
+    # import re
+    # a = re.split("[']+", text.lstrip())
+    return  text.replace(',', ' ').replace('.', ' ').split()[0]
 
 
 if __name__ == '__main__':

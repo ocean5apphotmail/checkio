@@ -22,8 +22,9 @@ def checkio(array: list) -> int:
     """
         sums even-indexes elements and multiply at the last
     """
-    return 0
+    return sum(array[::2]) * array[-1] if len(array) > 0 else 0
 
+checkio2 = lambda array: sum(array[::2]) * sum(array[-1:])
 
 # These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':

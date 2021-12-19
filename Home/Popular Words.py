@@ -32,7 +32,11 @@
 
 def popular_words(text: str, words: list) -> dict:
     # your code here
-    return None
+    rdict = {}
+    tlist = text.lower().split()
+    for w in words:
+        rdict[w] = tlist.count(w)
+    return rdict
 
 
 if __name__ == '__main__':

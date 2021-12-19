@@ -27,9 +27,18 @@
 
 # How to improve this mission? https://github.com/CheckiO-Missions/checkio-mission-sum-numbers { 8 }
 
+sum_numbers2=lambda t,r=__import__("re").compile(r'\b\d+\b'):sum(map(int,r.findall(t)))
+
+sum_numbers3 = lambda text: sum(int(word) for word in text.split() if word.isdigit())
+
 def sum_numbers(text: str) -> int:
  # your code here
- return 0
+ result = 0
+ words = text.split(' ')
+ for w in words:
+  if w.isnumeric():
+   result = result + int(w)
+ return result
 
 
 if __name__ == '__main__':

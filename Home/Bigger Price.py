@@ -28,7 +28,13 @@ def bigger_price(limit: int, data: list) -> list:
         TOP most expensive goods
     """
     # your code here
-    return None
+    rlist = []
+    for idx, el in enumerate(sorted(data, key = lambda i: i['price'],reverse=True)):
+        if idx == limit:
+            return rlist
+        else:
+            rlist.append(el)
+    return rlist
 
 
 if __name__ == '__main__':

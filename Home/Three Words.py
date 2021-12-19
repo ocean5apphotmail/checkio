@@ -18,9 +18,22 @@
 # Precondition: The input contains words and/or numbers. There are no mixed words (letters and digits combined).
 # 0 < len(words) < 100
 # How to improve this mission? https://github.com/CheckiO-Missions/checkio-task-three-words { 37 }
+import re
+
+def checkio2(words):
+    return True if re.search('\D+\s\D+\s\D+', words) else False
 
 def checkio(words: str) -> bool:
-    return True or False
+    ws = words.split()
+    countstr = 0
+    for w in ws:
+        if w.isnumeric() == True :
+            countstr = 0
+        else:
+            countstr = countstr + 1
+            if countstr == 3:
+                return True
+    return False
 
 
 # These "asserts" using only for self-checking and not necessary for auto-testing

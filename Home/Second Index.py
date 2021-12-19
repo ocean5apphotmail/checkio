@@ -17,7 +17,14 @@ def second_index(text: str, symbol: str) -> [int, None]:
         returns the second index of a symbol in a given text
     """
     # your code here
-    return 0
+    p1 = text.find(symbol)
+    if p1 == -1:
+        return None
+    p2 = text[p1+1:].find(symbol)
+    if p2 == -1:
+        return None
+    else:
+        return p2 + p1 + 1
 
 
 if __name__ == '__main__':
