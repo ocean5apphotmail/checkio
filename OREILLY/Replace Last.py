@@ -14,7 +14,14 @@
 # replace_last([]) == []
 def replace_last(line: list) -> list:
     # your code here
-    return None
+    a = []
+    if line == []:
+        return a
+    else:
+        a.append(line[-1])
+        a.extend(line[:-1])
+    return a
+
 
 
 if __name__ == '__main__':

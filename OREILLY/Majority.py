@@ -11,7 +11,12 @@
 # is_majority([True, True, False]) == True
 def is_majority(items: list) -> bool:
     # your code here
-    return items
+    from collections import Counter
+    dic = Counter(items)
+    if dic[True] > dic[False]:
+        return True
+    else:
+        return False
 
 
 if __name__ == '__main__':
