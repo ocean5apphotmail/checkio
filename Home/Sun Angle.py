@@ -22,7 +22,17 @@ from typing import Union
 
 def sun_angle(time: str) -> Union[int, str]:
     # replace this for solution
-    return time
+
+    hour = time[:2]
+    min = time[3:]
+
+    if int(hour) - 6 == 12 and int(min) == 0:
+        return 180
+    if int(hour) - 6 < 0 or int(hour) - 6 >= 12:
+        return "I don't see the sun!"
+    else:
+        return ((int(hour) - 6) * 60 + int(min) )/ 720 * 180
+
 
 
 if __name__ == '__main__':

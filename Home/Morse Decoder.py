@@ -61,8 +61,17 @@ MORSE = {
 
 def morse_decoder(code):
     # replace this for solution
-    return code
 
+    words = []
+    morwords = code.split('   ')
+    for mw in morwords:
+        letters = mw.split()
+        word = ''
+        for idx, el in enumerate(letters):
+            word = word + str(MORSE[el])
+        words.append(word)
+
+    return ' '.join(words).capitalize()
 
 if __name__ == "__main__":
     print("Example:")

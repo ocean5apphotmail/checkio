@@ -25,6 +25,47 @@
 # How to improve this mission? https://github.com/XanderVi/checkio-mission-date-time { 12 }
 def date_time(time: str) -> str:
     # replace this for solution
+    from datetime import date
+    year = time[6:10]
+    month = str(int(time[3:5]))
+    day = str(int(str(time[:2])))
+    hour = str(int(time[11:13]))
+    min = str(int(time[14:]))
+
+    if month == '1':
+        hmonth = 'January'
+    elif month == '2':
+        hmonth = 'February'
+    elif month == '3':
+        hmonth = 'March'
+    elif month == '4':
+        hmonth = 'April'
+    elif month == '5':
+        hmonth = 'May'
+    elif month == '6':
+        hmonth = 'June'
+    elif month == '7':
+        hmonth = 'July'
+    elif month == '8':
+        hmonth = 'August'
+    elif month == '9':
+        hmonth = 'September'
+    elif month == '10':
+        hmonth = 'October'
+    elif month == '11':
+        hmonth = 'November'
+    elif month == '12':
+        hmonth = 'December'
+
+    if hour == '1' and min == '1':
+        time = day + ' ' + hmonth + ' ' + year + ' ' + 'year' + ' ' + hour + ' ' + 'hour' + ' ' + min + ' ' + 'minute'
+    elif hour == '1' and min != '1':
+        time = day + ' ' + hmonth + ' ' + year + ' ' + 'year' + ' ' + hour + ' ' + 'hour' + ' ' + min + ' ' + 'minutes'
+    elif hour != '1' and min == '1':
+        time = day + ' ' + hmonth + ' ' + year + ' ' + 'year' + ' ' + hour + ' ' + 'hours' + ' ' + min + ' ' + 'minute'
+    else:
+        time = day + ' ' + hmonth + ' ' + year + ' ' + 'year' + ' ' + hour + ' ' + 'hours' + ' ' + min + ' ' + 'minutes'
+
     return time
 
 

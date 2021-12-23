@@ -14,7 +14,13 @@
 
 def split_list(items: list) -> list:
     # your code here
-    return [items]
+    if int(len(items)) == 0:
+        return [[],[]]
+    elif len(items) % 2 == 0:
+        return [items[:int(len(items)/2)],items[int(len(items)/2):]]
+    elif len(items) % 2 == 1:
+        return [items[:int(len(items)/2) + 1],items[int(len(items)/2) + 1:]]
+
 
 
 if __name__ == '__main__':
